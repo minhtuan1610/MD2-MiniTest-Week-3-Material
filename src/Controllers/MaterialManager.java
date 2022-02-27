@@ -76,6 +76,16 @@ public class MaterialManager {
     }
     //  Sửa vật liệu
 
+    //  Hiển thị thông tin sản phẩm
+    public static void displayMaterial(LinkedList<Material> listOfMaterial) {
+        for (Material i : listOfMaterial
+        ) {
+            System.out.println(i);
+        }
+
+    }
+    //  Tính chênh lệch giá giữa sản phẩm chiết khấu và không chiết khấu
+
     // Xoá vật liệu
     public void deleteMaterial(LinkedList<Material> listOfMaterial, String ID) {
         for (Material i : listOfMaterial
@@ -86,6 +96,4 @@ public class MaterialManager {
             }
         }
     }
-    //  Tính chênh lệch giá giữa sản phẩm chiết khấu và không chiết khấu
-
 }

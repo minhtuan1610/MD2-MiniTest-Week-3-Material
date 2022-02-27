@@ -64,6 +64,7 @@ public class Operation {
             choice = scanner.nextInt();
             switch (choice) {
                 case 1:
+                    MaterialManager.displayMaterial(listOfMaterial);
                     break;
                 case 2: //  Thêm vật liệu mới
                     MaterialManager.addNewMeat(listOfMaterial);
