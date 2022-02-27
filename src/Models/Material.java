@@ -14,7 +14,6 @@ public abstract class Material {
     public Material(String ID, String name, int cost) {
         this.ID = ID;
         this.name = name;
-//        this.manufacturingDate = manufacturingDate;
         this.cost = cost;
     }
 
