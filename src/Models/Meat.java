@@ -3,13 +3,14 @@ package Models;
 import java.time.LocalDate;
 
 public class Meat extends Material implements Discount {
+    public static final int OUT_OF_DATE = 0;
     private double weight;
 
     public Meat() {
     }
 
-    public Meat(String ID, String name, LocalDate manufacturingDate, int cost, double weight) {
-        super(ID, name, manufacturingDate, cost);
+    public Meat(String ID, String name, int cost, double weight) {
+        super(ID, name, cost);
         this.weight = weight;
     }
 
@@ -24,7 +25,11 @@ public class Meat extends Material implements Discount {
     @Override
     public String toString() {
         return "Meat{" +
-                "weight=" + weight + "kg" +
+                "ID='" + getName() + '\'' +
+                ", name='" + getName() + '\'' +
+                ", manufacturingDate='" + getManufacturingDate() + '\'' +
+                ", cost= " + getCost() +
+                ", weight= " + weight + " kg" +
                 '}';
     }
 
@@ -45,7 +50,7 @@ public class Meat extends Material implements Discount {
         LocalDate today = LocalDate.now();
         LocalDate expiryDate = getExpiryDate();
         double discount;
-        double moneyPayable;
+        double moneyPayable = OUT_OF_DATE;
         double payment = getPayment();
         if (today.isBefore(expiryDate) || today.equals(expiryDate)) {
             if (today.isAfter(expiryDate.minusDays(5))) {
@@ -56,9 +61,6 @@ public class Meat extends Material implements Discount {
                 discount = 10d / 100; //thể hiện kiểu dữ liệu là double
             }
             moneyPayable = payment * (1 - discount);
-        } else {
-            //  Thịt đã quá hạn
-            moneyPayable = -1;
         }
         return moneyPayable;
     }

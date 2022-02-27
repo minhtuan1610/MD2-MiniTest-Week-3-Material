@@ -3,13 +3,14 @@ package Models;
 import java.time.LocalDate;
 
 public class CrispyFlour extends Material implements Discount {
+    public static final int OUT_OF_DATE = 0;
     private double quantity;
 
     public CrispyFlour() {
     }
 
-    public CrispyFlour(String ID, String name, LocalDate manufacturingDate, int cost, double quantity) {
-        super(ID, name, manufacturingDate, cost);
+    public CrispyFlour(String ID, String name, int cost, double quantity) {
+        super(ID, name, cost);
         this.quantity = quantity;
     }
 
@@ -24,7 +25,11 @@ public class CrispyFlour extends Material implements Discount {
     @Override
     public String toString() {
         return "CrispyFlour{" +
-                "quantity=" + quantity + "kg" +
+                "ID='" + getID() + '\'' +
+                ", name='" + getName() + '\'' +
+                ", manufacturingDate='" + getManufacturingDate() + '\'' +
+                ", cost= " + getCost() +
+                ", quantity= " + quantity + " kg" +
                 "}";
     }
 
@@ -45,7 +50,7 @@ public class CrispyFlour extends Material implements Discount {
         LocalDate today = LocalDate.now();
         LocalDate expiryDate = getExpiryDate();
         double discount;
-        double moneyPayable;
+        double moneyPayable = OUT_OF_DATE;
         double payment = getPayment();
 
         if (today.isBefore(expiryDate) || today.equals(expiryDate)) {
@@ -60,9 +65,6 @@ public class CrispyFlour extends Material implements Discount {
                 discount = 5d / 100; //thể hiện kiểu dữ liệu là double
             }
             moneyPayable = payment * (1 - discount);
-        } else {
-            //  Bột đã quá hạn
-            moneyPayable = -1;
         }
         return moneyPayable;
     }

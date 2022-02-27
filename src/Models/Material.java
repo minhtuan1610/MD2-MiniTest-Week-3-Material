@@ -11,10 +11,10 @@ public abstract class Material {
     public Material() {
     }
 
-    public Material(String ID, String name, LocalDate manufacturingDate, int cost) {
+    public Material(String ID, String name, int cost) {
         this.ID = ID;
         this.name = name;
-        this.manufacturingDate = manufacturingDate;
+//        this.manufacturingDate = manufacturingDate;
         this.cost = cost;
     }
 
