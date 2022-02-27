@@ -2,7 +2,7 @@ package Models;
 
 import java.time.LocalDate;
 
-public class CrispyFlour extends Material {
+public class CrispyFlour extends Material implements Discount {
     private double quantity;
 
     public CrispyFlour() {
@@ -38,5 +38,32 @@ public class CrispyFlour extends Material {
     public LocalDate getExpiryDate() {
         LocalDate expiryDate = getManufacturingDate().plusYears(1);
         return expiryDate;
+    }
+
+    @Override
+    public double getMoneyPayable() {
+        LocalDate today = LocalDate.now();
+        LocalDate expiryDate = getExpiryDate();
+        double discount;
+        double moneyPayable;
+        double payment = getPayment();
+
+        if (today.isBefore(expiryDate) || today.equals(expiryDate)) {
+            if (today.isAfter(expiryDate.minusMonths(2))) {
+                //  Nếu bột chiên giòn còn 2 tháng hết hạn thì giảm giá 40%
+                discount = 40d / 100; //thể hiện kiểu dữ liệu là double
+            } else if (today.isAfter(expiryDate.minusMonths(4))) {
+                //  Nếu bột chiên giòn còn 4 tháng hết hạn thì giảm giá 20%
+                discount = 20d / 100;
+            } else {
+                //  Các trường hợp còn lại chỉ giảm giá 5%
+                discount = 5d / 100; //thể hiện kiểu dữ liệu là double
+            }
+            moneyPayable = payment * (1 - discount);
+        } else {
+            //  Bột đã quá hạn
+            moneyPayable = -1;
+        }
+        return moneyPayable;
     }
 }
