@@ -9,7 +9,7 @@ public class Meat extends Material implements Discount {
     public Meat() {
     }
 
-    public Meat(String ID, String name, int cost, double weight) {
+    public Meat(String ID, String name, double cost, double weight) {
         super(ID, name, cost);
         this.weight = weight;
     }

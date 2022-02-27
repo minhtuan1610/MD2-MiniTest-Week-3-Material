@@ -6,12 +6,12 @@ public abstract class Material {
     private String ID;
     private String name;
     private LocalDate manufacturingDate;
-    private int cost;
+    private double cost;
 
     public Material() {
     }
 
-    public Material(String ID, String name, int cost) {
+    public Material(String ID, String name, double cost) {
         this.ID = ID;
         this.name = name;
         this.cost = cost;
@@ -43,11 +43,11 @@ public abstract class Material {
         this.manufacturingDate = manufacturingDate;
     }
 
-    public int getCost() {
+    public double getCost() {
         return cost;
     }
 
-    public void setCost(int cost) {
+    public void setCost(double cost) {
         this.cost = cost;
     }
 

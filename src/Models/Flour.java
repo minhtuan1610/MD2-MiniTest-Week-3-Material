@@ -2,14 +2,14 @@ package Models;
 
 import java.time.LocalDate;
 
-public class CrispyFlour extends Material implements Discount {
+public class Flour extends Material implements Discount {
     public static final int OUT_OF_DATE = 0;
     private double quantity;
 
-    public CrispyFlour() {
+    public Flour() {
     }
 
-    public CrispyFlour(String ID, String name, int cost, double quantity) {
+    public Flour(String ID, String name, double cost, double quantity) {
         super(ID, name, cost);
         this.quantity = quantity;
     }
