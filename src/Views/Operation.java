@@ -7,6 +7,7 @@ import Models.Meat;
 
 import java.time.LocalDate;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class Operation {
     public static void main(String[] args) {
@@ -46,13 +47,39 @@ public class Operation {
         listOfMaterial.add(breadFlour);
         listOfMaterial.add(cornFlour);
         listOfMaterial.add(oatFlour);
-        //  Thêm vật liệu mới
+        //  Hiển thị menu
+        final int MENU_CHOICE = -1;
+        int choice = MENU_CHOICE;
+        while (choice != 0) {
+            System.out.println("Lựa chọn mà bạn muốn:");
+            System.out.println("1. Hiển thị tất cả các sản phẩm");
+            System.out.println("2. Thêm mới sản phẩm Meat");
+            System.out.println("3. Thêm mới sản phẩm Flour");
+            System.out.println("4. Sửa sản phẩm");
+            System.out.println("5. Xoá sản phẩm");
+            System.out.println("6. Chênh lệch chiết khấu ngày hôm nay");
+            System.out.println("0. Exit");
 
-        //  Sửa vật liệu
-
-        //  Xoá vật liệu
-
-        //  Tính chênh lệch giữa chiết khấu và không chiết khấu tại ngày hôm nay
-
+            Scanner scanner = new Scanner(System.in);
+            choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    break;
+                case 2: //  Thêm vật liệu mới
+                    MaterialManager.addNewMeat(listOfMaterial);
+                    break;
+                case 3: //  Thêm vật liệu mới
+                    MaterialManager.addNewFlour(listOfMaterial);
+                    break;
+                case 4: //  Sửa vật liệu
+                    break;
+                case 5: //  Xoá vật liệu
+                    break;
+                case 6: //  Tính chênh lệch giữa chiết khấu và không chiết khấu tại ngày hôm nay
+                    break;
+                case 0:
+                    System.exit(0);
+            }
+        }
     }
 }
