@@ -1,5 +1,6 @@
 package Views;
 
+import Controllers.MaterialManager;
 import Models.Flour;
 import Models.Material;
 import Models.Meat;
@@ -34,11 +35,24 @@ public class Operation {
         breadFlour.setManufacturingDate(LocalDate.of(2021, 11, 12));
         cornFlour.setManufacturingDate(LocalDate.of(2021, 12, 30));
         oatFlour.setManufacturingDate(LocalDate.of(2022, 1, 15));
+        //  Thêm các vật liệu ban đầu vào LinkedList
+        listOfMaterial.add(beef);
+        listOfMaterial.add(pork);
+        listOfMaterial.add(chicken);
+        listOfMaterial.add(duck);
+        listOfMaterial.add(goose);
+        listOfMaterial.add(crispyFlour);
+        listOfMaterial.add(wheatFlour);
+        listOfMaterial.add(breadFlour);
+        listOfMaterial.add(cornFlour);
+        listOfMaterial.add(oatFlour);
         //  Thêm vật liệu mới
 
         //  Sửa vật liệu
 
         //  Xoá vật liệu
+
+        //  Tính chênh lệch giữa chiết khấu và không chiết khấu tại ngày hôm nay
 
     }
 }
