@@ -25,7 +25,7 @@ public class Meat extends Material implements Discount {
     @Override
     public String toString() {
         return "Meat{" +
-                "ID='" + getName() + '\'' +
+                "ID='" + getID() + '\'' +
                 ", name='" + getName() + '\'' +
                 ", manufacturingDate='" + getManufacturingDate() + '\'' +
                 ", cost= " + getCost() +

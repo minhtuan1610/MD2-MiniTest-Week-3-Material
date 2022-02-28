@@ -77,6 +77,7 @@ public class MaterialManager {
 
     //  Sửa vật liệu
     public static void editMaterial(LinkedList<Material> listOfMaterial) {
+        displayMaterial(listOfMaterial);
 
     }
 
