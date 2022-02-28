@@ -1,6 +1,6 @@
 package Views;
 
-import Controllers.MaterialManager;
+import controllers.MaterialManager;
 import Models.Flour;
 import Models.Material;
 import Models.Meat;
@@ -72,7 +72,11 @@ public class Operation {
                 case 3: //  Thêm vật liệu mới
                     MaterialManager.addNewFlour(listOfMaterial);
                     break;
-                case 4: //  Sửa vật liệu
+                case 4: //  Sửa vật liệu theo tên
+                    System.out.println("Nhập tên sản phẩm muốn sửa:");
+                    Scanner inputName = new Scanner(System.in);
+                    String initialName = inputName.nextLine();
+                    MaterialManager.editMaterialByName(listOfMaterial, initialName);
                     break;
                 case 5: //  Xoá vật liệu theo ID
                     System.out.println("Nhập ID sản phẩm muốn xoá:");
