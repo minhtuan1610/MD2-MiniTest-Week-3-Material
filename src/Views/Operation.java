@@ -21,9 +21,9 @@ public class Operation {
         //  Khởi tạo 5 đối tượng bột
         Material crispyFlour = new Flour("c2", "Bột chiên giòn", 40000.0, 0.5);
         Material wheatFlour = new Flour("w2", "Bột mì", 42000.0, 0.7);
-        Material breadFlour = new Flour("c2", "Bột bánh mì", 52000.0, 0.9);
-        Material cornFlour = new Flour("c2", "Bột ngô", 53000.0, 1.3);
-        Material oatFlour = new Flour("c2", "Bột yến mạch", 54000.0, 1.7);
+        Material breadFlour = new Flour("b2", "Bột bánh mì", 52000.0, 0.9);
+        Material cornFlour = new Flour("co2", "Bột ngô", 53000.0, 1.3);
+        Material oatFlour = new Flour("o2", "Bột yến mạch", 54000.0, 1.7);
         //  Thiết lập ngày sản xuất cho 5 đối tượng thịt
         beef.setManufacturingDate(LocalDate.of(2022, 2, 23));
         pork.setManufacturingDate(LocalDate.of(2022, 2, 24));
@@ -56,7 +56,7 @@ public class Operation {
             System.out.println("2. Thêm mới sản phẩm Meat");
             System.out.println("3. Thêm mới sản phẩm Flour");
             System.out.println("4. Sửa sản phẩm");
-            System.out.println("5. Xoá sản phẩm");
+            System.out.println("5. Xoá sản phẩm theo ID");
             System.out.println("6. Chênh lệch chiết khấu ngày hôm nay");
             System.out.println("0. Exit");
 
@@ -74,7 +74,11 @@ public class Operation {
                     break;
                 case 4: //  Sửa vật liệu
                     break;
-                case 5: //  Xoá vật liệu
+                case 5: //  Xoá vật liệu theo ID
+                    System.out.println("Nhập ID sản phẩm muốn xoá:");
+                    Scanner inputIdDeletion = new Scanner(System.in);
+                    String IdDeletion = inputIdDeletion.nextLine();
+                    MaterialManager.deleteMaterialByID(listOfMaterial, IdDeletion);
                     break;
                 case 6: //  Tính chênh lệch giữa chiết khấu và không chiết khấu tại ngày hôm nay
                     break;
